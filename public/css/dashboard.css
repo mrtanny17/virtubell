@@ -1,14 +1,13 @@
-body{
-    color: white;
+body {
+  color: white;
 }
 
-
 footer {
-    background-color: #111111;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
+  background-color: #1c1c1c;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

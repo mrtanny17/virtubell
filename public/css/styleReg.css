@@ -1,157 +1,194 @@
-/* Register Styles */
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #1a1a1a; /* Dark gray background for the entire page */
+  font-family: Arial, sans-serif; /* Font for the page */
+}
+
+/* Navbar Styles */
+.navbar {
+  border-radius: 30px;
+  overflow: hidden;
+  height: auto;
+  align-items: center;
+  box-shadow: 0 3px 4px rgba(255, 255, 255, 0.2); /* Subtle shadow for depth */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between; /* Adjusts space between logo and nav items */
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin: 0; /* Ensure no margin affects layout */
+}
+
+.nav-list li {
+  margin: 0 10px; /* Consistent spacing between items */
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+  transition: outline 0.3s ease;
+  position: relative;
+  outline: none;
+}
+
+.nav-list li a:hover {
+  animation: outline-pulse 0.5s ease-in-out forwards;
+}
+
+/* Outline animation */
+@keyframes outline-pulse {
+  0% {
+    outline: 2px solid transparent;
+  }
+  50% {
+    outline: 2px solid gray;
+  }
+  100% {
+    outline: 2px solid transparent;
+  }
+}
+
+/* Logo Styles */
+.logo {
+  color: white;
+  border-radius: 30px;
+  overflow: hidden;
+  height: 35px;
+  width: 100px;
+  text-align: center;
+  display: flex; /* Ensure centering of text */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  text-decoration: none;
+}
+
+/* Form Styles */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
 .form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-width: 350px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 20px;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 500px; /* Consistent width for both forms */
+  background-color: #2b2b2b; /* Dark gray background for the form */
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.title {
+  font-size: 32px;
+  color: royalblue;
+  font-weight: 700;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  left: 0;
+  background-color: royalblue;
+}
+
+.title::before {
+  width: 20px;
+  height: 20px;
+}
+
+.title::after {
+  width: 20px;
+  height: 20px;
+  animation: pulse 1.2s linear infinite;
+}
+
+.message,
+.signin {
+  color: rgba(220, 220, 220, 0.9);
+  font-size: 15px;
+  text-align: center;
+}
+
+.signin {
+  color: #f5f5f5;
+}
+
+.signin a {
+  color: royalblue;
+}
+
+.signin a:hover {
+  text-decoration: underline;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(150, 150, 150, 0.5);
+  border-radius: 10px;
+  background-color: #3d3d3d;
+  color: white;
+}
+
+/* Make the message box larger */
+.input.message-box {
+  min-height: 80px; /* Increase height for message box */
+  resize: vertical; /* Allow vertical resizing */
+}
+
+.input + span {
+  display: block;
+  margin-top: 5px;
+  color: lightgray;
+}
+
+.submit {
+  border: none;
+  background-color: royalblue;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+  background-color: rgb(56, 90, 194);
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
   }
-  
-  form {
-    width: 50%; /* adjust this value to control the form's width */
+  to {
+    transform: scale(1.8);
+    opacity: 0;
   }
-  
-  .form-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: black;
-  }
-  
-  .title {
-    font-size: 28px;
-    color: royalblue;
-    font-weight: 600;
-    letter-spacing: -1px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    padding-left: 30px;
-  }
-  
-  .title::before,.title::after {
-    position: absolute;
-    content: "";
-    height: auto;
-    width: 16px;
-    border-radius: 50%;
-    left: 0px;
-    background-color: royalblue;
-  }
-  
-  .title::before {
-    width: 18px;
-    height: 18px;
-    background-color: royalblue;
-  }
-  
-  .title::after {
-    width: 18px;
-    height: 18px;
-    animation: pulse 1s linear infinite;
-  }
-  
-  .message, .signin {
-    color: rgba(88, 87, 87, 0.822);
-    font-size: 14px;
-  }
-  
-  .signin {
-    text-align: center;
-    color: black;
-  }
-  
-  .signin a {
-    color: royalblue;
-  }
-  
-  .signin a:hover {
-    text-decoration: underline royalblue;
-  }
-  
-  .flex {
-    display: flex;
-    width: 100%;
-    gap: 6px;
-  }
-  
-  .form label {
-    position: relative;
-  }
-  
-  .form label .input {
-    width: 100%;
-    padding: 10px 10px 20px 10px;
-    outline: 0;
-    border: 1px solid rgba(105, 105, 105, 0.397);
-    border-radius: 10px;
-  }
-  
-  .form label .input + span {
-    position: absolute;
-    left: 10px;
-    top: 15px;
-    color: grey;
-    font-size: 0.9em;
-    cursor: text;
-    transition: 0.3s ease;
-  }
-  
-  .form label .input:placeholder-shown + span {
-    top: 15px;
-    font-size: 0.9em;
-  }
-  
-  .form label .input:focus + span,.form label .input:valid + span {
-    top: 30px;
-    font-size: 0.7em;
-    font-weight: 600;
-  }
-  
-  .form label .input:valid + span {
-    color: green;
-  }
-  
-  .submit {
-    border: none;
-    outline: none;
-    background-color: royalblue;
-    padding: 10px;
-    border-radius: 10px;
-    color: #fff;
-    font-size: 16px;
-    transform: .3s ease;
-  }
-  
-  .submit:hover {
-    background-color: rgb(56, 90, 194);
-  }
-  
-  @keyframes pulse {
-    from {
-      transform: scale(0.9);
-      opacity: 1;
-    }
-  
-    to {
-      transform: scale(1.8);
-      opacity: 0;
-    }
-  }
-  
-  .logo {
-    color: white;
-    border-radius: 30px; /* Add rounded edges */
-    overflow: hidden; /* Ensure rounded corners display correctly */
-    height: 35px;
-    width: 100px;
-    text-align: center;
-    background-color: royalblue;
-    justify-content: center;
-    vertical-align: middle;
-    text-decoration: none;
-  }
+}
+
+/* Specific contact form styles */
+.contact-form .input {
+  min-height: 80px; /* Increase height for message box */
+  resize: vertical; /* Allow vertical resizing */
+}

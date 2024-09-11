@@ -6,7 +6,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background-color: black;
+  background-color: #1c1c1c; /* Dark gray background */
+  overflow: hidden;
 }
 
 /* Style the navbar container */
@@ -15,7 +16,8 @@ body {
   overflow: hidden; /* Ensure rounded corners display correctly */
   height: auto;
   align-items: center;
-  box-shadow: 0 3px 4px white;
+  box-shadow: 0 3px 4px rgba(255, 255, 255, 0.2); /* Subtle shadow for depth */
+  padding: 10px 20px;
 }
 
 /* Style the navigation list */
@@ -24,11 +26,12 @@ body {
   padding: 0;
   display: flex;
   justify-content: center;
+  margin: 0; /* Ensure no margin affects layout */
 }
 
 /* Style the list items */
 .nav-list li {
-  margin: 1px;
+  margin: 0 10px; /* Consistent spacing between items */
 }
 
 /* Style the links */
@@ -37,36 +40,73 @@ body {
   color: #fff;
   padding: 10px 20px;
   border-radius: 20px; /* Add rounded edges to links */
-  transition: background-color 0.3s ease; /* Smooth background color transition */
+  transition: outline 0.3s ease; /* Smooth outline transition */
+  position: relative; /* Needed for outline animation */
+  outline: none; /* Remove default outline */
 }
 
-/* Change link background color on hover */
+/* Hover effect with outline animation */
 .nav-list li a:hover {
-  background-color: royalblue;
+  animation: outline-pulse 0.5s ease-in-out forwards;
 }
 
+/* Outline animation */
+@keyframes outline-pulse {
+  0% {
+    outline: 2px solid transparent;
+  }
+  50% {
+    outline: 2px solid gray;
+  }
+  100% {
+    outline: 2px solid transparent;
+  }
+}
+
+/* Logo Styling */
 .logo a {
   color: white;
-  border-radius: 30px; /* Add rounded edges */
-  overflow: hidden; /* Ensure rounded corners display correctly */
+  border-radius: 30px;
+  overflow: hidden;
   height: 35px;
   width: 100px;
   text-align: center;
+  display: flex;
+  align-items: center;
   justify-content: center;
   text-decoration: none;
 }
 
 /* Content */
 #content-index {
-  padding-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  min-height: 100vh;
   color: white;
+  width: 100%;
+}
+
+#content-index .row {
+  display: flex;
+  flex-direction: row; /* Align items in a row */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  gap: 40px; /* Increased space between image and content */
+  max-width: 1400px; /* Adjusted width for more content spanning */
+  height: 99%;
+  width: 100%;
+  margin: 0 auto; /* Center the row horizontally */
+}
+
+#content-index .col-lg-6 {
+  max-width: 700px; /* Increased width of text column */
 }
 
 #content-index .p1 {
-  padding-top: 5%;
   font-size: 16px;
   letter-spacing: 2px;
-  width: 60% !important;
 }
 
 #content-index h3 {
@@ -85,10 +125,10 @@ body {
 /* Admin Dashboard Styles */
 #admin-content {
   padding: 20px;
-  background-color: #fff;
+  background-color: #2d2d2d; /* Dark gray background */
   margin: 20px auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  color: black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Slightly darker shadow */
+  color: white;
 }
 
 .admin-options {
@@ -100,7 +140,7 @@ body {
 .option {
   text-align: center;
   padding: 20px;
-  border: 1px solid #ddd;
+  border: 1px solid #444; /* Darker gray border */
   border-radius: 5px;
 }
 
@@ -108,7 +148,7 @@ body {
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #333;
+  background-color: #444; /* Dark gray button */
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -116,7 +156,167 @@ body {
 }
 
 .btn:hover {
+  background-color: gray;
+}
+
+/* Form Styles */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 40px; /* Increased padding around the container */
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased space between fields */
+  width: 90%; /* Increased width of the form */
+  max-width: 800px; /* Set a maximum width for larger screens */
+  background-color: #2b2b2b; /* Dark gray background for the form */
+  padding: 40px; /* Increased padding for more space inside the form */
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
+
+.title {
+  font-size: 32px;
+  color: royalblue;
+  font-weight: 700;
+  letter-spacing: -1px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+.title::before,
+.title::after {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  left: 0;
   background-color: royalblue;
 }
 
+.title::before {
+  width: 20px;
+  height: 20px;
+}
 
+.title::after {
+  width: 20px;
+  height: 20px;
+  animation: pulse 1.2s linear infinite;
+}
+
+.message,
+.signin {
+  color: rgba(220, 220, 220, 0.9);
+  font-size: 15px;
+  text-align: center;
+}
+
+.signin {
+  color: #f5f5f5;
+}
+
+.signin a {
+  color: royalblue;
+}
+
+.signin a:hover {
+  text-decoration: underline;
+}
+
+.input {
+  width: 100%;
+  padding: 15px; /* Increased padding for a more spacious feel */
+  border: 1px solid rgba(150, 150, 150, 0.5);
+  border-radius: 10px;
+  background-color: #3d3d3d;
+  color: white;
+  box-sizing: border-box; /* Ensure padding does not affect width */
+}
+
+/* Textarea Styles */
+textarea.input {
+  min-height: 100px; /* Increased height for the message box */
+  resize: vertical; /* Allow vertical resizing if needed */
+}
+
+/* Label Styles */
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* Space between input and label text */
+}
+
+/* Button Styles */
+.submit {
+  border: none;
+  background-color: royalblue;
+  padding: 15px; /* Increased padding for the button */
+  border-radius: 10px;
+  color: #fff;
+  font-size: 18px; /* Larger font size for the button text */
+  transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+  background-color: rgb(56, 90, 194);
+}
+
+/* Contact Form Specific Styles */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Increased space between fields */
+}
+
+.contact-form .input {
+  min-height: 100px; /* Increased height for the message box */
+  resize: vertical; /* Allow vertical resizing */
+}
+
+@keyframes pulse {
+  from {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Image Animation Styles */
+.img {
+  max-width: 100%; /* Ensure responsive scaling */
+  border-radius: 20px; /* Add rounded edges */
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out; /* Smooth scaling and shadow */
+}
+
+/* Hover animation for the image */
+.img:hover {
+  transform: scale(1.03); /* Slightly increase the size */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
+}
+
+/* Fade-in Animation */
+@keyframes img-fade-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Apply the fade-in animation on page load */
+.img {
+  animation: img-fade-in 1s ease-in-out;
+}

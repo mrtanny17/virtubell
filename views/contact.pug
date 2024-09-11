@@ -24,9 +24,7 @@ html(lang="en")
       form.form
         p.title Contact us!
         label
-          input.required(type="email", placeholder="", class="input")
-          span Email
+          input.input(type="email", name="email", placeholder="Email", required)
         label
-          input.required(type="text", placeholder="", class="input")
-          span Your message
+          textarea.input(name="message", placeholder="Your message", required)
         button.submit Submit
